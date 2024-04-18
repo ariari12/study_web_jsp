@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>저녁 메뉴 골라봐</h1>
+<form action="menu.do">
+	<input type="radio" name="menu" value="김밥">김밥
+	<br>
+	<input type="radio" name="menu" value="라면">라면
+	<br>
+	<input type="radio" name="menu" value="라면+김밥">라면+김밥
+	<br>
+	<input type="radio" name="menu" value="떡볶이">떡볶이
+	<br>
+	<input type="radio" name="menu" value="돈까스">돈까스
+	<br>
+	<input type="submit" value="결정">
+</form>
+
+<h1>3. 서블릿 작성하는 순서</h1>
+<p>
+	1. HttpServlet 상속받기
+	2. doGet 또는 doPost 등 오버라이딩하기
+	3. @WebServlet("") 서블릿 주소 등록하기 
+</p>
+
+<h1>4. time2.do 실행하면 현재 시간을 화면에 출력 (1. SimpleDateFormat   2. Date 클래스에 있는 메서드 ) </h1>
+
+
+
+</body>
+</html>

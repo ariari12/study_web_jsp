@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>7. 1부터 입력값까지의 누적합을 구해서 출력하는 서블릿을 HttpServlet을 상속받는 방법으로 구현하시오.</h1>
+<form action="totalSum.do" method="post">
+	<input type="submit" value="POST 버튼"/>
+</form>
+<form action="totalSum.do">
+	<input type="submit" value="GET 버튼"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>저녁 메뉴 골라봐</h1>
+<input type="radio" name="menu" value="김밥">김밥
+<input type="radio" name="menu" value="라면">라면
+<input type="radio" name="menu" value="라면+김밥">라면+김밥
+<input type="radio" name="menu" value="떡볶이">떡볶이
+<input type="radio" name="menu" value="돈까스">돈까스
+</body>
+</html>

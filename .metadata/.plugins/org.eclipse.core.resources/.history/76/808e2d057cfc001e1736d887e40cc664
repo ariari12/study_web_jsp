@@ -1,0 +1,30 @@
+package day2;
+
+import java.io.IOException;
+
+import jakarta.servlet.GenericServlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServlet;
+
+//1. HttpServlet 상속
+//2.doGet(), doPsot() Override
+//3. 서블릿 등록 ( 1.@WebServlet, 2. web.xml)
+public class MyServlet extends GenericServlet{
+	@Override
+	public void init() throws ServletException {
+		System.out.println("초기화 메서드 호출중");
+	}
+	
+	@Override
+	public void destroy() {
+		System.out.println("서블릿 제거중");
+	}
+	@Override
+	public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+		System.out.println("service() 호출중");
+		
+	}
+
+}

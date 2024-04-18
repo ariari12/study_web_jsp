@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 스트립트 요소
+	1. 스크립트릿
+	2. 표현식
+	3. 선언	
+-->
+<%
+	int total=0;
+	for(int i=1; i<=100; i++){
+		total+=i;
+	}
+
+	int g = (1+100)*(100/2);
+%>
+
+<h1>1부터 100까지 누적합계 : <%=g %></h1>
+
+	
+
+</body>
+</html>
