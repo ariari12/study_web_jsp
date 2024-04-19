@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--
+		앞에서 전달한 파라미터 값을 가져와서 화면에 출력
+	  -->
+	  <%
+	  String id=request.getParameter("id");
+	  String pwd=request.getParameter("pwd");
+	  %>
+	  <h1>
+	  ID :<%=id %>
+	  </h1>
+	  <h1>
+	  PWD :<%=pwd %>
+	  </h1>
+	  
+	  <%
+	  // 1. 환경변수
+	  // 2. 드라이버로딩
+	  // 3. Connection
+	  // 4. sql문장
+	  // 5. sql문장 객체
+	  // 6. 실행
+	  // 7. 레코드별 로직 처리
+	  // 8. 자원반납
+	  
+	  %>
+	  
+	  
+
+</body>
+</html>

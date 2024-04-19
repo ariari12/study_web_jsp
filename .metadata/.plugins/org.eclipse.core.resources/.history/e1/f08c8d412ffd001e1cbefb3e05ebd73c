@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="result.jsp">
+	<label for="id">ID :</label>
+	<input type="text" id="id">
+	<br />
+	<label for="name">NAME :</label>
+	<input type="text" id="name">
+	<br />
+	<label for="birthNum">주민등록번호 :</label>
+	<input type="text" id="birthNum">
+	<br />
+	<label for="pw">비밀번호 :</label>
+	<input type="password" id="pw">
+	<br />
+	<label for="tel">전화번호 :</label>
+	<input type="text" id="tel">
+	<br />
+	<label for="addr">주소 :</label>
+	<input type="text" id="addr">
+	<br />
+	<label for="email">EMAIL :</label>
+	<input type="text" id="email">
+	<br />
+	<label for="gender">성별 :</label>
+	<div id="gender">
+		<input type="radio" name="sex" >남
+		<input type="radio" name="sex" >여
+	</div>
+	<label for="hobby">취미 :</label>
+	<div id="hobby">
+		<input type="checkbox" name="hob" >음악감상
+		<input type="checkbox" name="hob" >독서
+		<input type="checkbox" name="hob" >운동
+	</div>
+	<input type="submit" value="가입하기" />
+	<input type="reset" value="취소하기" />
+</form>
+
+</body>
+</html>

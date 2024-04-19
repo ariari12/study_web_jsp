@@ -1,0 +1,13 @@
+package day4;
+
+import dao.DeptDAO;
+import vo.DeptVO;
+
+public class TestMain {
+	public static void main(String[] args) {
+		DeptDAO dao = new DeptDAO();
+		DeptVO vo = dao.selectOne(10);
+		System.out.println("vo : "+vo);
+	}
+
+}
