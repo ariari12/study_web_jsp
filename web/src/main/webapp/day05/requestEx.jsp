@@ -14,7 +14,11 @@
 	request.setCharacterEncoding("UTF-8");
 	//GET, POST 방식?
 	String method = request.getMethod();
+	String queryString = request.getQueryString();
+	String ip = request.getRemoteAddr();
 	out.println("<h2> method : "+ method +"</h2>");
+	out.println("<h2> queryString : "+ queryString +"</h2>");
+	out.println("<h2> ip : "+ ip +"</h2>");
 %>
 
 </body>
