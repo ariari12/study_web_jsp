@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import vo.MemberVO;
 
+
 public class MemberDAO {
+
 	//1. 환경변수
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url ="jdbc:oracle:thin:@localhost:1521:xe";
@@ -62,6 +65,39 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return vo;	
+	}
+	
+	public void addMember(MemberVO vo) {
+		// sb 길이를 0으로 만들어서 초기화
+		sb.setLength(0);
+		// 4. sql문 작성
+		// 내가 작성한 시퀀스의 정보는 DESC USER_SEQUENCES
+		sb.append("INSERT INTO member values(MEMBER_NO_SEQ.nextval,?,?,?,?,?)");
+		//5. 문장객체
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getPw());
+			pstmt.setString(4, vo.getGender());
+			pstmt.setString(5, vo.getMotive());
+			
+			//6. 실행
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void close() {
+		try {
+			if(rs!=null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 	}
 
 }

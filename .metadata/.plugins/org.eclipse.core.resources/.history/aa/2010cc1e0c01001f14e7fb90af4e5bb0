@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<img src="../images/naver.png" alt="" />
+		</div>
+		<div id="nav">
+			<a href="new.jsp">뉴스</a>
+			<a href="enter.jsp">연애</a>
+			<a href="shopping.jsp">쇼핑</a>
+			<a href="movie.jsp">영화</a>
+			<a href="cook.jsp">요리</a>
+		</div>
+		<div id="sidebar">
+			<div id="login">
+				<form action="loginOk.jsp"></form>
+					<table>
+						<tr>
+						<td>ID</td>
+						<td><input type="text" name="id" id="" /></td>
+						</tr>
+						<tr>
+						<td>PW</td>
+						<td><input type="text" name="pw" id="" /></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="submit" value="로그인" />
+								<input type="button" value="회원가입" />
+							</td>						
+						</tr>
+					</table>
+					
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

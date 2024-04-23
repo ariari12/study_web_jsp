@@ -61,5 +61,54 @@ public class EmpDAO {
 		return empList;
 		
 	}
+	
+	public ArrayList<vo.EmpDeptVO> selectAllV2(){
+		sbf.setLength(0);
+		sbf.append("select e.empno,e.ename, e.sal,d.deptno, d.dname,d.loc from dept d,emp e where d.deptno=e.deptno");
+		ArrayList<vo.EmpDeptVO> list = new ArrayList<>();
+		try {
+			pstmt=conn.prepareStatement(sbf.toString());
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				int empno = rs.getInt("empno");
+				String ename = rs.getString("ename");
+				int sal = rs.getInt("sal");
+				int deptno = rs.getInt("deptno");
+				String dname = rs.getString("dname");
+				String loc = rs.getString("loc");
+				vo.EmpDeptVO edvo = new vo.EmpDeptVO(empno,ename,sal,deptno,dname,loc);
+				list.add(edvo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<vo.EmpDeptVO> selectDeptNo(int no){
+		sbf.setLength(0);
+		sbf.append("select e.empno,e.ename, e.sal,d.deptno, d.dname,d.loc from dept d,emp e where d.deptno=e.deptno and d.deptno=?");
+		ArrayList<vo.EmpDeptVO> list = new ArrayList<>();
+		try {
+			pstmt=conn.prepareStatement(sbf.toString());
+			pstmt.setInt(1, no);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				int empno = rs.getInt("empno");
+				String ename = rs.getString("ename");
+				int sal = rs.getInt("sal");
+				int deptno = rs.getInt("deptno");
+				String dname = rs.getString("dname");
+				String loc = rs.getString("loc");
+				vo.EmpDeptVO edvo = new vo.EmpDeptVO(empno,ename,sal,deptno,dname,loc);
+				list.add(edvo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

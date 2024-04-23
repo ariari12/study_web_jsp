@@ -1,0 +1,58 @@
+<%@page import="vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 로그인 버튼을 클릭하면
+	// 브라우저 콘솔에 hello 메세지를 출력
+	window.onload=function(){
+		let btn = document.getElementById("btn1");
+		btn.onclick=function(){
+			console.log("Hello");
+		}
+	}
+</script>
+</head>
+<body>
+
+	<!-- table>(tr>th+td)*2 -->
+	<%
+		Object obj = session.getAttribute("vo");
+		out.println("<h3>"+obj+"</h3>");
+		
+		if(obj != null){
+			MemberVO vo = (MemberVO)obj;
+			out.println("<h3><a href ='logout.jsp'>"+ vo.getName()+"</a>님 환영합니다.</h3>");
+		}else{
+					
+	%>
+<form action="loginOK.jsp">
+	<table>
+	
+		<tr>
+			<th>ID</th>
+			<td><input type="text" name="id" id="id" /></td>
+		</tr>
+		<tr>
+			<th>PW</th>
+			<td><input type="password" name="pwd" id="pwd" /></td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+			<td><input type="button" value="로그인" id="btn1" /></td>
+			<td><input type="button" value="회원가입" id="btn2" /></td>
+		</tr>
+	</table>
+	
+</form>
+<%
+	}
+%>
+
+
+</body>
+</html>

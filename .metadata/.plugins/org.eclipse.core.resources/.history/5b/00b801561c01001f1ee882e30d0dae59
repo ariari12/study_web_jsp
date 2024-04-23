@@ -1,0 +1,46 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ProductDAO {
+	//1~3 기본 생성자
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url ="jdbc:oracle:thin:@localhost:1521:xe";
+	String username = "scott";
+	String password = "tiger";
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	StringBuffer sb = new StringBuffer();
+	
+	public ProductDAO() {
+		
+		try {
+			Class.forName(driver);
+			conn = DriverManager.getConnection(url,username,password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	// 전체조회 : selectAll()
+	public ArraylList<ProductVO> selectAll(){
+		sb.setLength(0);
+		sb.append("select * from product");
+		conn.prepareStatement(sb.toString());
+		return;
+	}
+	//4~7
+	
+	// 1건 조회 : get One(int pno);
+}

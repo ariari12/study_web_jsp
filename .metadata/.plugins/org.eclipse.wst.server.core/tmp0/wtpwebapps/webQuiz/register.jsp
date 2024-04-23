@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="result.jsp">
+<form action="registerOk.jsp">
 	<label for="id">ID :</label>
 	<input type="text" name="id" id="id">
 	<br />

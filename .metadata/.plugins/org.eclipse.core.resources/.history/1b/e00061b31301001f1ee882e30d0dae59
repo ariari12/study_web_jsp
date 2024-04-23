@@ -1,0 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div id="nav">
+			<a href="new.jsp">뉴스</a>
+			<a href="enter.jsp">연애</a>
+			<a href="shopping.jsp">쇼핑</a>
+			<a href="movie.jsp">영화</a>
+			<a href="cook.jsp">요리</a>
+		</div>
