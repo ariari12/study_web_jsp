@@ -15,6 +15,6 @@ public class ProductVO {
 	String prodesc;
 	int qty;
 	String imgfile;
-	String bigfile;
+	String bigfile;	
 
 }

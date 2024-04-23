@@ -70,12 +70,45 @@ public class ProductDAO {
 	
 	public ProductVO getOne(int pno){
 		sb.setLength(0);
-		sb.append("select * from product where pno=?");		
+		sb.append("select pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile from product where pno=?");
+		ProductVO pvo = null;
 		try {
 			pstmt=conn.prepareStatement(sb.toString());
 			pstmt.setInt(1, pno);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
+				pvo =new ProductVO(
+						pno,
+						rs.getString("pname"),
+						rs.getInt("price"),
+						rs.getInt("dcratio"),
+						rs.getString("prodesc"),
+						rs.getInt("qty"),
+						rs.getString("imgfile"),
+						rs.getString("bigfile")
+					);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return pvo;
+	}
+	
+	//public ArrayList<ProductVO> findByName(String pname);	
+	// like 연산자가 포함해서
+	
+	public ArrayList<ProductVO> findByName(String pname){
+		sb.setLength(0);
+		sb.append("select pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile from product ");
+		sb.append("where pname like ?");		
+		ArrayList<ProductVO> list=new ArrayList<>();
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setString(1,"%"+pname+"%");
+			rs=pstmt.executeQuery();			
+			while(rs.next()) {
 				ProductVO pvo =new ProductVO(
 						rs.getInt("pno"),
 						rs.getString("pname"),
@@ -85,14 +118,15 @@ public class ProductDAO {
 						rs.getInt("qty"),
 						rs.getString("imgfile"),
 						rs.getString("bigfile")
-					);
-				return pvo;
+						);
+				list.add(pvo);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return null;
+		return list;
 	}
+	
 }

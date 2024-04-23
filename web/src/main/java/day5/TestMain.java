@@ -15,6 +15,8 @@ public class TestMain {
 		
 		ProductVO pvo =dao.getOne(1);
 		System.out.println(pvo.toString());
+		
+		System.out.println(dao.findByName("1"));
 	}
 	
 	

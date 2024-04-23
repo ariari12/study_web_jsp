@@ -1,0 +1,19 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import vo.ProductVO;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		ProductDAO dao = new ProductDAO();
+		
+		ArrayList<ProductVO> list = dao.selectAll();
+		
+		for(ProductVO ov : list) {
+			System.out.println(ov.toString());
+		}
+	}
+}
