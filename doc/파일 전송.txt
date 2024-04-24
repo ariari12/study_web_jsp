@@ -1,0 +1,8 @@
+http://servlets.com/cos/
+에서 다운로드 압축 푼후 
+cos-22.05\lib 에 있는 jar 파일
+web-inf/lib 에 드래그앤드랍
+
+사용하려면
+form 태그에
+enctype="multipart/form-data" 추가
