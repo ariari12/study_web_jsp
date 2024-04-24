@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductVO {
-	int pno;
-	String pname;
-	int price;
-	int dcratio;
-	String prodesc;
-	int qty;
-	String imgfile;
-	String bigfile;	
+	private int pno;
+	private String pname;
+	private int price;
+	private int dcratio;
+	private String prodesc;
+	private int qty;
+	private String imgfile;
+	private String bigfile;	
 
 }
