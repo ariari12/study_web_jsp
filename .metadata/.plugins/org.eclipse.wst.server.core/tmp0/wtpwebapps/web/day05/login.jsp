@@ -10,7 +10,7 @@
 	// 로그인 버튼을 클릭하면
 	// 브라우저 콘솔에 hello 메세지를 출력
 	window.onload = function() {
-		let btn = document.getElementById("btn1");
+		let btn = document.getElementById("btn1");		
 		btn.onclick = function() {
 			
 			let frm= document.frm;
@@ -67,7 +67,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</form>
 	<%
 	}

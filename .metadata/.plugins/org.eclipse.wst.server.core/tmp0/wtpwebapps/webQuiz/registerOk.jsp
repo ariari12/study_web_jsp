@@ -1,6 +1,6 @@
 
 <%@page import="vo.MemberVO"%>
-<%@page import="vo.MemberDAO"%>
+<%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,10 +18,10 @@
 	String zipcode = request.getParameter("zipcode");
 	
 	MemberDAO dao = new MemberDAO();
- 	MemberVO mvo = new MemberVO(id,pw,name,sex," ",zipcode); 
+ 	/* MemberVO mvo = new MemberVO(id,pw,name,sex," "); 
  	System.out.println(mvo);
 	
-	dao.insertOne(mvo);
+	dao.insertOne(mvo); */
 	
 %>
 

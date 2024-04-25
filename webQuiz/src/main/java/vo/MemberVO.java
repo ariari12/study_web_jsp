@@ -12,19 +12,10 @@ public class MemberVO {
 	private String id;
 	private String pw;
 	private String name;
-	private String sex;
+	private String gender;
 	private String motive;
-	private String zipcode;
+//	private String zipcode;
 	
-	
-	public MemberVO(String id, String pw, String name, String sex, String motive, String zipcode) {
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.sex = sex;
-		this.motive = motive;
-		this.zipcode = zipcode;
-	}
 
 	
 }
