@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vo.FileVO;
+
 public class FileDAO {
 	//1~3
 	String driver = "oracle.jdbc.driver.OracleDriver";
@@ -33,17 +35,36 @@ public class FileDAO {
 		
 	}
 	
-	public void addOne(String title, 
+	public int getNumber() {
+		sb.setLength(0);		
+		sb.append("SELECT fileup_no_seq.nextval x FROM dual ");
+		int result =-1;
+		
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getInt("x");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public void addOne(int fileNumber, String title, 
 			String writer, String contents) {
 		sb.setLength(0);
 		sb.append("INSERT INTO fileuploadtest ");
 //		sb.append("VALUES(fileup_no_seq.nextval,?,?,?,?) ");
-		sb.append("VALUES(fileup_no_seq.nextval,?,?,?) ");
+		sb.append("VALUES(?,?,?,?) ");
 		try {
 			pstmt=conn.prepareStatement(sb.toString());
-			pstmt.setString(1, title);
-			pstmt.setString(2, writer);
-			pstmt.setString(3, contents);
+			pstmt.setInt(1, fileNumber);
+			pstmt.setString(2, title);
+			pstmt.setString(3, writer);
+			pstmt.setString(4, contents);
 //			pstmt.setString(4, filename);	
 			
 			pstmt.executeUpdate();

@@ -1,4 +1,4 @@
-<%@page import="dao.FileVO"%>
+<%@page import="vo.FileVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.FileDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -29,7 +29,7 @@
 				<td><%= vo.getWriter() %></td>
 				<td><%= vo.getWriter() %></td>
 				<td><%= vo.getContentes() %></td>
-				<td><img src="../upload/<%=vo.getFilename() %>" alt="" /></td>
+				<%-- <td><img src="../upload/<%=vo.getFilename() %>" alt="" /></td> --%>
 			</tr>
 		<%
 		}

@@ -1,5 +1,7 @@
-<%@page import="day4.MemberDAO"%>
-<%@page import="day4.MemberVO"%>
+<%@page import="vo.MemberVO"%>
+<%@page import="vo.MemberDAO"%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

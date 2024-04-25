@@ -1,3 +1,4 @@
+<%@page import="dao.FileInfoDAO"%>
 <%@page import="dao.FileDAO"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.Enumeration"%>
@@ -38,7 +39,23 @@
 		}
 		out.println("<hr>");
 		
+		
+		FileDAO dao = new FileDAO();
+		String title = mr.getParameter("title");
+		String writer = mr.getParameter("writer");
+		String contents = mr.getParameter("contents");
+		// 시퀀스를 통해서 파일 번호를 하나 얻어온다
+		int fileNumber = dao.getNumber();
+		
+		/* dao.addOne(title,writer,contents,filename); */
+		dao.addOne(fileNumber, title,writer,contents);
+		
+		
+		
 		Enumeration files = mr.getFileNames();
+		
+		FileInfoDAO dao2 = new FileInfoDAO(); 
+		
 		while(files.hasMoreElements()){
 			String fname = (String)files.nextElement();
 			String filename = mr.getFilesystemName(fname);
@@ -49,17 +66,8 @@
 			out.println("<h2> 저장 파일명 : "+ filename +"</h2>");			
 			out.println("<h2> 실제 파일명 : "+ original +"</h2>");
 			out.println("<h2> 컨텐츠 타입 : "+ type +"</h2>");
+			dao2.addFileOne("../upload/"+filename, type, 1);
 		}
-	
-		
-		
-		FileDAO dao = new FileDAO();
-		String title = mr.getParameter("title");
-		String writer = mr.getParameter("writer");
-		String contents = mr.getParameter("contents");
-		/* dao.addOne(title,writer,contents,filename); */
-		dao.addOne(title,writer,contents);
-		
 	%>
 	<a href="view.jsp">이미지보기</a>
 	<a href="dirView.jsp">저장 디렉토리의 파일목록보기</a>

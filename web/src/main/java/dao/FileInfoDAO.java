@@ -47,7 +47,7 @@ public class FileInfoDAO {
 				String filename=rs.getString("filename");
 				String type=rs.getString("type");
 				int no=rs.getInt("no");
-				FileInfoVO fvo = new FileInfoVO();
+				FileInfoVO fvo = new FileInfoVO(fno,filename,type,no);
 				list.add(fvo);
 			}
 		} catch (SQLException e) {
@@ -64,7 +64,7 @@ public class FileInfoDAO {
 		try {
 			pstmt=conn.prepareStatement(sb.toString());
 			pstmt.setString(1, fileName);
-			pstmt.setString(2, fileName);
+			pstmt.setString(2, type);
 			pstmt.setInt(3, no);
 			pstmt.executeUpdate();
 			
