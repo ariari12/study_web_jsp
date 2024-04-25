@@ -58,6 +58,7 @@
 		String writer = mr.getParameter("writer");
 		String contents = mr.getParameter("contents");
 		/* dao.addOne(title,writer,contents,filename); */
+		dao.addOne(title,writer,contents);
 		
 	%>
 	<a href="view.jsp">이미지보기</a>

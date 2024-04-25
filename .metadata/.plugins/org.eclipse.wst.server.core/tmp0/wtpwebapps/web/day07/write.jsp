@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container">
-		<form action="result.jsp" method="post" enctype="multipart/form-data">
+		<form action="result2.jsp" method="post" enctype="multipart/form-data">
 			<table class="table table-hover">
 				<tr>
 					<th>제목</th>

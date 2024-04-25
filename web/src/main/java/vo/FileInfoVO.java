@@ -1,4 +1,4 @@
-package dao;
+package vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FileVO {
+public class FileInfoVO {
+	private int fno;
+	private String filePath;
+	private String type;
 	private int no;
-	private String title;
-	private String writer;
-	private String contentes;
-	//private String filename;
 
 }

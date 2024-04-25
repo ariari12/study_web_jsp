@@ -34,7 +34,7 @@ public class FileDAO {
 	}
 	
 	public void addOne(String title, 
-			String writer, String contents) {
+			String writer, String contents,String filename) {
 		sb.setLength(0);
 		sb.append("INSERT INTO fileuploadtest ");
 //		sb.append("VALUES(fileup_no_seq.nextval,?,?,?,?) ");
@@ -44,8 +44,7 @@ public class FileDAO {
 			pstmt.setString(1, title);
 			pstmt.setString(2, writer);
 			pstmt.setString(3, contents);
-//			pstmt.setString(4, filename);	
-			
+			pstmt.setString(4, filename);			
 			pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -77,7 +76,7 @@ public class FileDAO {
 			e.printStackTrace();
 		}
 		return list;
-	}	
+	}
 	
 	public void close() {
 		try {

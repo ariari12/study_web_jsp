@@ -12,6 +12,6 @@ public class FileVO {
 	private String title;
 	private String writer;
 	private String contentes;
-	//private String filename;
+	private String filename;
 
 }
