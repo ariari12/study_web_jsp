@@ -33,7 +33,15 @@
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="filename" id="" /></td>
+					<td><input type="file" name="filename1" id="" /></td>					
+				</tr>
+				<tr>
+					<th>첨부파일</th>
+					<td><input type="file" name="filename2" id="" /></td>					
+				</tr>
+				<tr>
+					<th>첨부파일</th>
+					<td><input type="file" name="filename3" id="" /></td>					
 				</tr>
 				
 				<tr>
