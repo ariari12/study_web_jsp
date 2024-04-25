@@ -21,15 +21,15 @@
 			<table class="table table-hover">
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="title" id="" /></td>
+					<td><input type="text" name="title" id="" value="대한민국" /></td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="writer" id="" /></td>
+					<td><input type="text" name="writer" id="" value="홍길동" /></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="contents" id="" cols="30" rows="10"></textarea></td>
+					<td><textarea name="contents" id="" cols="30" rows="10">우왕</textarea></td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>

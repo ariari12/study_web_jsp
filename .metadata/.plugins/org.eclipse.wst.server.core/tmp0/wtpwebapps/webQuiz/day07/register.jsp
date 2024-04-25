@@ -31,7 +31,7 @@
 </script>
 </head>
 <body>
-<form action="registerOk.jsp">
+<form action="../registerOk.jsp">
 	<label for="id">ID :</label>
 	<input type="text" name="id" id="id">
 	<br />
@@ -78,8 +78,8 @@
 		<input type="checkbox" name="hob" value="운동" >운동
 	</div>
 	
-	<label for="zipcode">우편번호 :</label>
-	<div id="zipcode">
+	<label for="code">우편번호 :</label>
+	<div id="code">
 		<input type="text" name="zipcode" id="zipcode" />
 		<input type="button" value="우편번호찾기" id="btn" /><br />
 	</div>

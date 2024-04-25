@@ -1,5 +1,6 @@
-<%@page import="day4.MemberVO"%>
-<%@page import="day4.MemberDAO"%>
+
+<%@page import="vo.MemberVO"%>
+<%@page import="vo.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,9 +15,10 @@
 	String pw = request.getParameter("pw");
 	String name = request.getParameter("name");
 	String sex = request.getParameter("sex");
+	String zipcode = request.getParameter("zipcode");
 	
 	MemberDAO dao = new MemberDAO();
- 	MemberVO mvo = new MemberVO(id,pw,name,sex," "); 
+ 	MemberVO mvo = new MemberVO(id,pw,name,sex," ",zipcode); 
  	System.out.println(mvo);
 	
 	dao.insertOne(mvo);
