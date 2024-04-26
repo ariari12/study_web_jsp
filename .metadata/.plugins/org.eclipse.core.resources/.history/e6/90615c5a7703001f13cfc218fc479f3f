@@ -1,0 +1,9 @@
+<%@page import="dao.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String txt = request.getParameter("txt");
+	MemberDAO dao=new MemberDAO();
+	dao.getImg(txt);
+	out.println("<h2>"+vo.getName()+"</h2>");
+%>

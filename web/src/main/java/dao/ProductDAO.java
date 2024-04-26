@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Set;
 
+import vo.MemberVO;
 import vo.ProductVO;
 
 public class ProductDAO {
@@ -137,6 +138,29 @@ public class ProductDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public ProductVO getImg(String pname) {
+		sb.setLength(0);
+		sb.append("SELECT pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile ");
+		sb.append("FROM product where pname=? ");
+		ProductVO vo=null;
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setString(1, pname);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {				
+				String imgfile=rs.getString("imgfile");				
+				vo = new ProductVO();
+				vo.setImgfile(imgfile);
+				vo.setPname(pname);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vo;
+		
 	}
 
 //	public ArrayList<ProductVO> getData(Set<Integer> key){		

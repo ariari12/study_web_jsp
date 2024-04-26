@@ -90,6 +90,31 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public MemberVO getOne(String id) {
+		sb.setLength(0);
+		sb.append("SELECT no, id, pw, name, gender, motive ");
+		sb.append("FROM member where id=? ");
+		MemberVO vo=null;
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {				
+				String name=rs.getString("name");				
+				vo = new MemberVO();
+				vo.setId(id);
+				vo.setName(name);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vo;
+		
+	}
+	
+	
 	public void close() {
 		try {
 			if(rs!=null) rs.close();
