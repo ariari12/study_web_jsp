@@ -11,7 +11,7 @@
 		/* ProductVO vo=dao.getImg(pname); */
 		ArrayList<ProductVO> list=dao.findByName(pname);
 		if(list !=null){
-			out.println("<h2>"+list.get(0).getImgfile()+"</h2>");	
+			out.println(list.get(0).getImgfile());	
 		}
 		
 	}

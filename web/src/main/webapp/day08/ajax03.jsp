@@ -13,14 +13,17 @@
 		//search.jsp?txt= 뽀로로코딩컴퓨터
 		let txt=document.querySelector("#txt").value;
 		let params = "txt="+txt;
+		
+		
 		sendRequest("search.jsp",params,callback,"GET");
 	}
 	
 	function callback(){
 		if(xhr.readyState == 4){
 			if(xhr.status == 200){
-				console.log(xhr);
-				document.querySelector("#myconsole").innerHTML=xhr.responseText;
+				console.log(xhr.responseText);
+				let img = document.querySelector("#img");
+				img.src=xhr.responseText;
 			}			
 		}
 	}
@@ -30,7 +33,7 @@
 <input type="button" value="출력" onclick="prt()" />
 
 <div id="myconsole">
-	<img src="../images/before.png" alt="뽀로로" />	
+	<img src="../images/before.png" alt="뽀로로" id="img" />	
 </div>
 
 </body>

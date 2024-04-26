@@ -26,11 +26,14 @@
 	}
 	
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 	window.onload = function() {
 		let frm = document.frm;
 		
 		console.dir(frm);
+		
+
 		
 		frm[6].onclick = function() {
 			console.log("유효성 검사");
