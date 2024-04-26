@@ -56,7 +56,7 @@ public class FileDAO {
 	public void addOne(int fileNumber, String pname,
 			int qty,int price,int dcratio,String prodesc) {
 		sb.setLength(0);
-		sb.append("INSERT INTO fileuploadtest ");
+		sb.append("INSERT INTO product ");
 //		sb.append("VALUES(fileup_no_seq.nextval,?,?,?,?) ");
 		sb.append("VALUES(?,?,?,?,?,?) ");
 		try {
