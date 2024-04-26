@@ -1,0 +1,6 @@
+package vo;
+
+public class Snippet {
+	insert into movie values('파묘','movie_image_1.jpg');
+}
+

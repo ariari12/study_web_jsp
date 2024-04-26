@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import vo.EmpDeptVO;
+import vo.EmpVO;
 
 public class EmpDAO {
 	String driver = "oracle.jdbc.driver.OracleDriver";
@@ -54,5 +55,29 @@ public class EmpDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public EmpVO findByEmpno(int empno) {
+		EmpVO vo = null;
+		sb.setLength(0);
+		sb.append("SELECT empno, ename, job,mgr,hiredate,sal,comm,deptno ");
+		sb.append("FROM emp ");
+		sb.append("WHERE empno=? ");
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, empno);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {			
+				String ename=rs.getString("ename");				
+				vo = new EmpVO();
+				vo.setEmpno(empno);
+				vo.setEname(ename);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return vo;
 	}
 }

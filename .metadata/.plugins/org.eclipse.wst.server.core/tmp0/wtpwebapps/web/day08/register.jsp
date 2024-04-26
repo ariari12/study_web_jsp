@@ -32,8 +32,9 @@
 		let frm = document.frm;
 		
 		console.dir(frm);
-		
+				
 		$("#btn").on("click",idCheck);
+		$("#txt").on("keyup", idCheck);
 		
 		function idCheck(){
 			console.log("버튼눌림");
@@ -50,7 +51,13 @@
 				data : {"id":txt}, 
 				success : function(response, status, request){
 					console.log("비동기 통신");
-					console.log(response);					
+					console.log(response);	
+					let isOk=response.trim();					
+					if(isOk == "true"){
+						$("#msg").html("<span class='green'>사용 가능한 아이디 입니다.</span>");						
+					}else{
+						$("#msg").html("<span class='red'> 사용할 수 없는 아이디 입니다.</span>");
+					}
 				},
 				complete: function(){
 					console.log("AJAX 통신 끝");					
@@ -111,6 +118,7 @@
 		<span>ID:</span> 
 		<input type="text" name="id" id="txt" placeholder="id를 입력하세요" />
 		<input type="button" value="중복확인" id="btn" />
+		<span id="msg"></span> 
 		<br>
 		
 		<span>NAME:</span> 

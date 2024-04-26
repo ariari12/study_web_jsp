@@ -17,11 +17,11 @@
 		
 		if(vo==null){
 			// 5. vo가 널이라면 존재하지 않는 아이디 : 화면에 true 출력
-			out.println("vo가 널이라면 존재하지 않는 아이디 : true");
+			out.println("true");
 			
 		}else{
 			// 6. vo가 널이 아니라면 존재하는 아이디 : 화면에 false 출력
-			out.println("vo가 널이라면 존재하지 않는 아이디 : false");
+			out.println("false");
 			
 		}
 		
