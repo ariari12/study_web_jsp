@@ -1,0 +1,31 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
+
+import vo.DeptVO;
+
+public class BoardDAO {
+	private Connection conn;
+	
+	public BoardDAO() {		
+		try {
+			conn = DBConnection.getInstance().getConnection();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+
+}

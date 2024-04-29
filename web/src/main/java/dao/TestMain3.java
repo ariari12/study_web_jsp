@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
 
 public class TestMain3 {
 
@@ -13,8 +16,9 @@ public class TestMain3 {
 		
 		System.out.println("------------------------------------");
 		
-		Connection conn = conn1.getConnection();
-
+//		Connection conn = conn1.getConnection();
+		
+		
 	}
 
 }

@@ -1,0 +1,37 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import vo.BoardVO;
+
+public class BoardDAO {	
+	Connection conn=null;
+	StringBuffer sb = new StringBuffer();
+	ResultSet rs =null;
+	PreparedStatement pstmt =null;
+	
+	public BoardDAO() {
+		conn=DBConnection.getInstance().getConnection();
+	}
+	
+	public ArrayList<BoardVO> selectAll(){
+		sb.setLength(0);
+		sb.append("SELECT * FROM board");
+		ArrayList<BoardVO> list = ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,0 +1,47 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import vo.BoardVO;
+import vo.DeptVO;
+
+public class BoardDAO {
+	private Connection conn;
+	private StringBuffer sb = new StringBuffer();
+	private ResultSet rs = null;
+	private PreparedStatement pstmt = null;
+	
+	public BoardDAO() {		
+		conn = DBConnection.getInstance().getConnection();		
+	}
+	
+	//전체 조회
+	public ArrayList<BoardVO> selectAll(){
+		sb.setLength(0);
+		sb.append("select ")
+		return null;
+	}
+	// 1건 조회
+	public BoardVO getOne(int bno) {
+		return null;
+	}
+	// 1건 추가
+	public void addOne(BoardVO vo) {
+		
+	}
+	// 1건 변경
+	public void updateOne(BoardVO vo) {
+		// 제목, 내용, 작성자만 변경
+	}
+	// 1건 삭제
+	public void deleteOne(int bno) {
+		//게시물번호로 게시물 삭제
+	}
+	
+
+}

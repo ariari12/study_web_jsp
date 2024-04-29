@@ -1,0 +1,138 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import vo.BoardVO;
+
+public class BoardDAO {	
+	Connection conn=null;
+	StringBuffer sb = new StringBuffer();
+	ResultSet rs =null;
+	PreparedStatement pstmt =null;
+	
+	public BoardDAO() {
+		conn=DBConnection.getInstance().getConnection();
+	}
+	
+	public ArrayList<BoardVO> selectAll(){
+		sb.setLength(0);
+		sb.append("SELECT * FROM board ");
+		sb.append("order by bno desc ");
+		ArrayList<BoardVO> list = new ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO vo=new BoardVO();
+				vo.setBno(rs.getInt("bno"));
+				vo.setWriter(rs.getString("writer"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContents(rs.getString("contents"));
+				vo.setRegdate(rs.getString("regdate"));
+				vo.setHits(rs.getInt("hits"));
+				vo.setIp(rs.getString("ip"));
+				vo.setStatus(rs.getInt("status"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close();
+		return list;
+	}
+	
+	public BoardVO getOne(int bno) {
+		sb.setLength(0);
+		sb.append("SELECT * FROM board ");
+		sb.append("WHERE bno=? ");
+		BoardVO vo = new BoardVO();
+		try {
+			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setInt(1,bno);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setBno(bno);
+				vo.setWriter(rs.getString("writer"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContents(rs.getString("contents"));
+				vo.setRegdate(rs.getString("regdate"));
+				vo.setHits(rs.getInt("hits"));
+				vo.setIp(rs.getString("ip"));
+				vo.setStatus(rs.getInt("status"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close();
+		return vo;
+	}
+	public void raiseHits(int bno) {
+		sb.setLength(0);
+		sb.append("update board ");
+		sb.append("set hits=hits+1 ");
+		sb.append("where bno = ? ");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close();
+	}
+	
+	public void deleteOne(int bno) {
+		sb.setLength(0);
+		sb.append("DELETE FROM board ");		
+		sb.append("where bno = ? ");
+		System.out.println(bno);
+		try {
+			System.out.println(bno);
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+			System.out.println(bno);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close();
+	}
+	
+	public void addOne(BoardVO vo) {
+		sb.setLength(0);
+		sb.append("insert into board ");
+		sb.append("values(board_bno_seq.nextval,?,?,?,sysdate,0,?,1) ");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, vo.getWriter());
+			pstmt.setString(2, vo.getTitle());
+			pstmt.setString(3, vo.getContents());
+			pstmt.setString(4, vo.getIp());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		close();
+	}
+	
+	public void close() {
+		
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+}
