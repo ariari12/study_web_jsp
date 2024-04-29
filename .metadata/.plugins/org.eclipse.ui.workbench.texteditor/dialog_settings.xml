@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="complete: function(){"/>
 			<item value="memberVO"/>
 		</list>
 		<list key="replacehistory">

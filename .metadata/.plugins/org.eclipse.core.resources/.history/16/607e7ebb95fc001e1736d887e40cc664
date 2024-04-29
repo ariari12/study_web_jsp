@@ -1,8 +1,0 @@
-package day1;
-
-import jakarta.servlet.annotation.WebServlet;
-
-@WebServlet("/printGuGuDan.do")
-public class GuGuTest {
-
-}
