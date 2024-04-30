@@ -1,5 +1,3 @@
-<%@page import="vo.BoardVO"%>
-<%@page import="dao.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +13,35 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script type="text/javascript">
+</head>
+<body>
+	<div class="container">
+	<h2>글쓰기</h2>
+		<form action="writeOk.jsp">
+			<table class="table table-hover">
+				<tr>
+					<th>작성자</th>
+					<td><input type="text" name="writer" id="" /></td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td><input type="text" name="title" id="" /></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><textarea class="summernote name="contents" id="" cols="30" rows="10"></textarea></td>
+				</tr>
+				<tr>			
+					<td colspan="2">
+						<a href="list.jsp" class="btn btn-primary">목록</a>
+						<input type="submit" class="btn btn-success" value="작성" />
+						<input type="reset" class="btn btn-danger" value="다시쓰기" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script>
 	$(function(){
 		$('.summernote').summernote({ 
 			  // 에디터 높이 
@@ -48,59 +74,9 @@
 				 // 추가한 폰트사이즈 
 				fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'] 
 			}); 
-		
-	})
-</script>
-</head>
-<body>
-	<%
-	// 1. 전달 받은 파라미터의 값 가져오기
-	String b = request.getParameter("bno");
-	BoardVO vo= null;
-	//2. bno null 이 아니면
-	if(b!=null){
-		//3. 숫자로 형변환
-		int bno = Integer.parseInt(b);		
-		//4. dao 객체
-		BoardDAO dao = new BoardDAO();
-		
-		dao.raiseHits(bno); // hits 값을 1증가
-		dao = new BoardDAO();
-		
-		
-		//5. dao를 통해서 지정한 게시물을 가져오기		
-		//dao.getOne(bno);
-		vo = dao.getOne(bno);
-	}
+	});
 	
-	
-	%>
-	<div class="container">
-		<h2>상세보기</h2>
-		<!-- table>tr>(th+td)*2 -->
-		<table class="table">
-			<tr>
-				<th>작성자</th>
-				<td><%=vo.getWriter()%></td>
-				<th>조회수</th>
-				<td><%=vo.getHits()%></td>
-				<th>작성일시</th>
-				<td><%=vo.getRegdate()%></td>
-			</tr>
-			<tr>
-				<th colspan="2">내용</th>
-				<td colspan="4">
-				<textarea class="summernote" id="" cols="30" rows="10"><%=vo.getContents()%></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="6">
-					<a href="list.jsp" class="btn btn-primary">목록</a>
-					<a href="modify.jsp?bno=<%=vo.getBno() %>" class="btn btn-success">수정</a>
-					<a href="deleteOk.jsp?bno=<%=vo.getBno() %>" class="btn btn-danger">삭제</a>
-				</td>
-			</tr>
-		</table>
-	</div>
-
+		
+	</script>
 </body>
 </html>

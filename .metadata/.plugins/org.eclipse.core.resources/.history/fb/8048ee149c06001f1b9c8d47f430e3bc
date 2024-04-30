@@ -16,6 +16,7 @@
 	vo.setContents(contents);
 	vo.setIp(ip);
 	dao.addOne(vo);	
+	dao = new BoardDAO();
 	
 	
 	response.sendRedirect("list.jsp");

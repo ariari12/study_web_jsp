@@ -15,7 +15,8 @@
 	vo.setTitle(title);
 	vo.setContents(contents);
 	vo.setIp(ip);
-	dao.addOne(vo);
+	dao.addOne(vo);	
+	
 	
 	response.sendRedirect("list.jsp");
 %>
