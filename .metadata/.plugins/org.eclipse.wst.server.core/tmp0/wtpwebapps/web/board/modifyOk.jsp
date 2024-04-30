@@ -13,11 +13,13 @@
 		int bno = Integer.parseInt(b);
 		BoardDAO dao = new BoardDAO();
 		BoardVO vo = dao.getOne(bno);
+		dao = new BoardDAO();
 		vo.setBno(bno);
 		vo.setTitle(title);
 		vo.setContents(contents);
 		vo.setWriter(writer);		
 		dao.updateOne(vo);
+		
 		
 		
 	}

@@ -25,6 +25,7 @@
 		// 5. dao를 통해서 지정한 게시물을 가져오기 
 		// dao.getOne(bno); 
 			BoardVO vo = dao.getOne(bno);
+			dao = new BoardDAO();
 		
 		
 	%>

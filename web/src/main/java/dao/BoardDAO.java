@@ -21,14 +21,28 @@ public class BoardDAO {
 	}
 	
 	//전체 조회
-	public ArrayList<BoardVO> selectAll(){
+	public ArrayList<BoardVO> selectAll(int startNo, int endNo){
 		sb.setLength(0);
-		sb.append("select bno, writer, title, contents, regdate, hits, ip, status ");
-		sb.append("from board ");
-		sb.append("ORDER BY bno desc ");
+		sb.append("SELECT rn, bno, writer, title, contents, regdate, hits, ip, status ");
+		sb.append("FROM (SELECT rownum rn, bno, writer, title, contents, regdate, hits, ip, status ");
+		sb.append("	     FROM (SELECT bno, writer, title, contents, regdate, hits, ip, status ");
+		sb.append("	           FROM board ");
+		sb.append("	           ORDER BY bno desc ) ");
+		sb.append("	           WHERE rownum<=?) ");
+		sb.append("WHERE rn>=? ");
+		/*
+		 * sb.append("select bno, writer, title, contents, regdate, hits, ip, status ");
+		 * sb.append("from board ");
+		 * sb.append("ORDER BY bno desc ");
+		 */
+		
+		
 		ArrayList<BoardVO> list = new ArrayList<>();
 		try {
 			pstmt=conn.prepareStatement(sb.toString());
+			pstmt.setInt(1,  endNo);
+			pstmt.setInt(2,  startNo);
+			
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo = new BoardVO();
@@ -136,7 +150,7 @@ public class BoardDAO {
 	}
 	
 	public void raiseHits(int bno) {
-		BoardVO vo;				
+
 		sb.setLength(0);
 		sb.append("UPDATE board ");
 		sb.append("SET hits = hits+1 ");
@@ -152,6 +166,27 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		close();
+	}
+	
+	public int getTotalCount() {
+		int cnt=0;
+		sb.setLength(0);
+		sb.append("SELECT count(*) cnt ");
+		sb.append("FROM board ");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());						
+			rs=pstmt.executeQuery();
+			rs.next();
+			
+			cnt = rs.getInt("cnt");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}
+		close();
+		return cnt;
+		
 	}
 	
 	public void close() {
