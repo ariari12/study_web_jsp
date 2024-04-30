@@ -68,7 +68,7 @@
 					}
 				}
 				
-				ArrayList<BoardVO> list =dao.selectAll(startNo, endNo);
+				ArrayList<BoardVO> list =dao.selectAll();
 				for(BoardVO vo : list){					
 			%>
 			<tr>

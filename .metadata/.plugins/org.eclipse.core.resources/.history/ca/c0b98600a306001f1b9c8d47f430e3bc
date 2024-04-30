@@ -55,20 +55,10 @@
 				}
 				
 				if(totalPage - currentPage <= 5){
-					endPage = totalPage;
-				}else if( totalPage - currentPage > 5){
-					if(currentPage <=5 ){
-						if(totalPage > 10){
-							endPage=10;
-						}else{
-							endPage=totalPage;
-						}
-					}else{
-						endPage = currentPage-4;
-					}
+					
 				}
 				
-				ArrayList<BoardVO> list =dao.selectAll(startNo, endNo);
+				ArrayList<BoardVO> list =dao.selectAll();
 				for(BoardVO vo : list){					
 			%>
 			<tr>

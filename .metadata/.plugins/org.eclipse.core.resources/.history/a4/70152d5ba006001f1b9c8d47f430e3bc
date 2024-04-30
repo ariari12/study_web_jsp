@@ -18,26 +18,13 @@ public class BoardDAO {
 		conn=DBConnection.getInstance().getConnection();
 	}
 	
-	public ArrayList<BoardVO> selectAll(int startNo, int endNo){
+	public ArrayList<BoardVO> selectAll(){
 		sb.setLength(0);
-		/*
-		 * sb.append("SELECT * FROM board ");
-		 * sb.append("order by bno desc ");
-		 */
-		sb.append("SELECT rn, bno, writer, title, contents, regdate, hits, ip, status ");
-		sb.append("FROM (SELECT rownum rn, bno, writer, title, contents, regdate, hits, ip, status ");
-		sb.append("	     FROM (SELECT bno, writer, title, contents, regdate, hits, ip, status ");
-		sb.append("	           FROM board ");
-		sb.append("	           ORDER BY bno desc ) ");
-		sb.append("	           WHERE rownum<=?) ");
-		sb.append("WHERE rn>=? ");
-	
+		sb.append("SELECT * FROM board ");
+		sb.append("order by bno desc ");
 		ArrayList<BoardVO> list = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setInt(1,  endNo);
-			pstmt.setInt(2,  startNo);
-			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo=new BoardVO();
@@ -136,25 +123,6 @@ public class BoardDAO {
 		}
 		close();
 	}
-	
-	public int getTotalCount() {
-		sb.setLength(0);
-		sb.append("SELECT COUNT(*) cnt ");
-		sb.append("FROM board");
-		int cnt=0;
-		try {
-			pstmt = conn.prepareStatement(sb.toString());
-			rs=pstmt.executeQuery();
-			rs.next();
-			cnt=rs.getInt("cnt");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		close();
-		return cnt;
-	}
-	
 	
 	public void close() {
 		

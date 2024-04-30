@@ -35,9 +35,6 @@ public class BoardDAO {
 		ArrayList<BoardVO> list = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
-			pstmt.setInt(1,  endNo);
-			pstmt.setInt(2,  startNo);
-			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo=new BoardVO();
