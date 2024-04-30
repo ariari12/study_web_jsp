@@ -301,3 +301,17 @@
 0:0:0:0:0:0:0:1 - - [30/Apr/2024:14:30:52 +0900] "GET /web/images/cart.png HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [30/Apr/2024:14:30:54 +0900] "GET /web/day07/result.jsp HTTP/1.1" 500 2481
 0:0:0:0:0:0:0:1 - - [30/Apr/2024:14:32:12 +0900] "GET /favicon.ico HTTP/1.1" 404 819
+127.0.0.1 - - [30/Apr/2024:16:29:53 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:29:55 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:31:07 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:31:21 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 187
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:34:55 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:34:57 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+127.0.0.1 - - [30/Apr/2024:16:36:06 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:36:07 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:36:17 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:16:37:05 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:17:14:04 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+127.0.0.1 - - [30/Apr/2024:17:15:12 +0900] "GET / HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:17:15:13 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 188
+0:0:0:0:0:0:0:1 - - [30/Apr/2024:17:33:08 +0900] "GET /web/mysqlConnectionTest.jsp HTTP/1.1" 200 187
