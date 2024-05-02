@@ -1,0 +1,97 @@
+HTML
+
+XML(eXtensible Markup Language)
+W3C 의 웹 표준먼로 개발 : w3c.org
+
+HTML5 표준
+
+데이터저장과 교환(JSON), 환경설정, UI
+
+<한글></한글>
+
+HTML 단점
+1. 사용할수 있는 태그가 제한적
+2. 정보표현에만 기능이 집중
+3. 구조화된 정보를 표현 / 검색, 문서 유효성 검증 X
+
+XML 구조
+1. XML 선언부
+<?xml version="1.0" encoding="UTF-8" ?>
+
+2. 문서 구조(DTD : Document Type Definition)
+<!Doctype 루트엘리먼트명 SYSTEM 'dtd파일의 경로와 파일명'>
+
+3. XML 태그
+
+<시작태그></종료태그>
+
+1. 시작태그와 다음에는 반드시 종료 태그가 있어야 한다.
+
+2. 모든 엘리먼트명은 대소문자를 구분한다.
+	<Person></Person>	xxxxxxxxxxxxxxxxxxxx
+	
+3. 엘리먼트와 덱스트 데이터를 함께 나타낼수 있다.
+	<name>hong</name>
+	
+4. 엘리먼트 내용이 없으면 빈 요소를 둘 수 있다
+	<age></age>
+	
+5. 태그를 겹쳐서 쓰는 것을 허용하지 않는다.
+
+	<name>								OK
+		<age>20</age>
+	</name>
+	
+	<name> </name>						OK
+	<age></age>
+	
+	<name> <age> </name> </age>			X
+	
+6. 최상위(ROOT> 엘리먼트는 1개만
+
+-- 잘못된 예시
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE person SYSTEM 'test01.dtd'>
+
+<person>
+	<name>hong</name>
+	<age>20</age>
+</person>
+
+<person>
+	<name>LEE</name>
+	<age>20</age>
+</person>
+
+
+---------------------------------------
+-- 올바른 예시
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE human SYSTEM 'test01.dtd'>
+<human>
+	<person>
+		<name>hong</name>
+		<age>20</age>
+	</person>
+	
+	<person>
+		<name>LEE</name>
+		<age>20</age>
+	</person>	
+</human>
+
+7. 엘리먼트명은 xml 이름 지정규칙을 따라야 한다.
+
+	이름지정규칙
+	1. 문자열 'xml'로 시작할수 없다.
+	2. 엘리먼트명은 반드시 문자, 혹은 _ 로 시작해야한다.
+	3. 엘리먼트명은 중간에 공백을 사용할 수 없다.
+		<big small> </big small>  XX
+		단 공백으로 끝나는수는 있다.
+	4. 예약어 사용할수 없다.
+	
+1. Well-formed XML (w3c 표준을 지킨 문서)
+	(한 단계 더 나아간 개념)
+2. Valid XML : dtd, XSD(XML SHEMA Definition) 을 잘 만족하는 문서
+	valid xml <== Well-formed XML + dtd, xsd 잘 만족하는 문서
+
