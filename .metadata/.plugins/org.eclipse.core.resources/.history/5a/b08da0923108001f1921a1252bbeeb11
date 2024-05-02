@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 자동차 [
+	<!ELEMENT 자동차 (기본, 모델, 옵션)>
+	
+]>
+
+<자동차>
+	
+</자동차>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 어떤 엘리먼트가 사용될수 있는지 정의 할 수 있다. -->
+<!-- Document Type Definition : DTD -->
+<!DOCTYPE department SYSTEM "ex02.dtd">
+<!-- department>dept>deptno{10}+danme{ACCOUNTING}+LOC{NEW YORK} -->
+<department>
+	<dept>
+		<deptno>10</deptno>
+		<danme>ACCOUNTING</danme>
+		<LOC>NEW YORK</LOC>
+	</dept>
+	<!-- dept>deptno{20}+dname{RESEARCH}+loc{DALLAS} -->
+	<dept>
+		<deptno>20</deptno>
+		<dname>RESEARCH</dname>
+		<loc>DALLAS</loc>
+	</dept>
+	<dept>
+		<deptno>30</deptno>
+		<dname>SALES</dname>
+		<loc>CHICAGO</loc>
+	</dept>
+	<dept>
+		<deptno>40</deptno>
+		<dname>OPERATIONS</dname>
+		<loc>BOSTON</loc>
+	</dept>
+</department>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 엘리먼트(자식엘리먼트) 기호
+		+ : 1개 이상을 의미 
+-->
+
+<!ELEMENT department(dept)+ >
+<!ELEMENT dept(dept,dname,loc) >

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE phone[
+	<!ELEMENT phone (handphone+)>
+	<!ELEMENT hanphone ( os, name*, price)>
+	<!ELEMENT os ( #PCDATA)>
+	<!ELEMENT name ( #PCDATA)>
+	<!ELEMENT price ( #PCDATA)>
+]>
+
+<!--
+		기호 : 사용회수
+		+	 : 1개 이상
+		* 	 : 0개 이상
+		? 	 : 0 or 1
+		
+		A|B  : A 또는 B 둘중에 하나만 가능 
+		()	 : 요소를 그룹으로 선언해서 사용
+ -->
+ 
+ <!-- 현재 가지고 있는 핸드폰으로 코드 작성 -->
+ <phone>
+ 	<handphone>
+ 		<os>
+ 			안드로이드
+ 		</os>
+ 		<name>
+ 			갤럭시Z 플립4
+ 		</name>
+ 		<price>
+ 			300000원
+ 		</price>
+ 	</handphone>
+ </phone>
