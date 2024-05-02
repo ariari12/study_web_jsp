@@ -68,10 +68,12 @@ public class EmpDAO {
 			pstmt.setInt(1, empno);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {			
-				String ename=rs.getString("ename");				
+				String ename=rs.getString("ename");
+				String job=rs.getString("job");
 				vo = new EmpVO();
 				vo.setEmpno(empno);
 				vo.setEname(ename);
+				vo.setJob(job);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

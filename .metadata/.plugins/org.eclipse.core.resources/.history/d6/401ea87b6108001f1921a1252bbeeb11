@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<!ELEMENT 시 (#PCDATA)>
+<!ELEMENT 구 (#PCDATA)>
+<!ELEMENT 도 (#PCDATA)>
+<!ELEMENT 시 (#PCDATA)>
+<!ELEMENT 동 (#PCDATA)>
+
+
+<!ATTLIST 성명 사번 CDATA #REQUIRED>
+

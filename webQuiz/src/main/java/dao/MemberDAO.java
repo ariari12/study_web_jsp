@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import vo.MemberVO;
 
@@ -33,6 +34,33 @@ public class MemberDAO {
 		}
 		
 
+		
+	}
+	public ArrayList<MemberVO> selectAll(){
+		sb.setLength(0);
+		sb.append("SELECT no, id, pw, name, gender, motive ");
+		sb.append("from member ");
+		MemberVO vo=null;
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sb.toString());	
+			rs =pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int no=rs.getInt("no");
+				String userId=rs.getString("id");
+				String userPw=rs.getString("pw");
+				String name=rs.getString("name");
+				String gender=rs.getString("gender");
+				String motive=rs.getString("motive");
+				vo = new MemberVO(no, userId, userPw,name,gender,motive);
+				list.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;	
 		
 	}
 	public MemberVO searchUser(String id, String pw) {

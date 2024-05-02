@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT 사원 (명함)+>
+<!ELEMENT 명함 (회사명, 부서, 성명, 주소, 전화, 팩스)>
+<!ELEMENT 사원 (명함)+>
+<!ELEMENT 사원 (명함)+>
