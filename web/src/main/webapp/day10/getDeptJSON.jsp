@@ -4,18 +4,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.DeptDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<!-- 부서 테이블의 데이터를 가져와서 JSON 형식 -->
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+
+
 	
 	
 	<%
+		//부서 테이블의 데이터를 가져와서 JSON 형식
+		
 		JSONArray deptArray = new JSONArray();
 		//dao 객체
 		DeptDAO dao = new DeptDAO();
@@ -35,6 +31,3 @@
 		}
 		out.println(deptArray.toJSONString());
 	%>
-
-</body>
-</html>
