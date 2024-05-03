@@ -1,4 +1,5 @@
 <%@page import="vo.BoardVO"%>
+<%@page import="vo.BoardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.BoardMySQLDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
