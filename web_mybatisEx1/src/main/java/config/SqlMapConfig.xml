@@ -19,5 +19,6 @@
 	
 	<mappers>
 		<mapper resource="mapper/Mapper.xml"/>
+		<mapper resource="mapper/emp.xml"/>
 	</mappers>
 </configuration>

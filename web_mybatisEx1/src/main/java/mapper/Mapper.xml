@@ -12,4 +12,5 @@
 		INSERT INTO dept
 		VALUES (dept_deptno.nextval, #{dname},#{loc})
 	</insert>
+	
 </mapper>
