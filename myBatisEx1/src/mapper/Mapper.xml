@@ -16,5 +16,27 @@
 	 	SELECT deptno, dname, loc
 	 	FROM dept
 	 </select>
+	 
+	 <select id="SelectOne" parameterType="int"  resultType="vo.DeptVO">
+	 	SELECT deptno, dname, loc
+	 	FROM dept
+	 	WHERE deptno = #{deptno}
+	 </select>
+	 
+	 <insert id="addOne" parameterType="vo.DeptVO">
+	 	INSERT INTO dept
+	 	VALUES (DEPT_DEPTNO.nextval, #{dname}, #{loc})
+	 </insert>
+	 
+	 <update id="modifyOne" parameterType="vo.DeptVO">
+	 	UPDATE dept
+	 	SET dname = #{dname}, loc = #{loc}
+	 	WHERE deptno = #{deptno}
+	 </update>
+	 
+	 <delete id="deleteDeptOne" parameterType="int">
+	 	DELETE FROM dept
+	 	WHERE deptno = #{deptno}
+	 </delete>
 </mapper>
   

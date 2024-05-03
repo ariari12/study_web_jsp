@@ -27,6 +27,7 @@
   	<mappers>
   		<!-- SQL문을 어디에? -->
   		<mapper resource="mapper/Mapper.xml"/>
+  		<mapper resource="mapper/dept.xml"/>
   	</mappers>
   	
   </configuration>
