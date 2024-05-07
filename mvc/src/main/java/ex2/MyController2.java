@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 // localhost:8080/mvc/MyControl ==> ex2.korea.jsp : 안녕하세요
 // localhost:8080/mvc/MyControl?cmd=kr ==> ex2/korea.jsp : 안녕하세요
+// localhost:8080/mvc/MyControl?cmd=cn ==> ex2/cn.jsp : 니하오
+// localhost:8080/mvc/MyControl?cmd=jp ==> ex2/jp.jsp : 곰방와
 @WebServlet("/MyControl")
 public class MyController2 extends HttpServlet{
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,6 +28,14 @@ public class MyController2 extends HttpServlet{
 			// 4. 이동할 url과 값을 결정, 전달 메세지 속성에 담기
 			url = "ex2/korea.jsp";
 			msg="안녕하세요";
+			req.setAttribute("msg", msg);
+		}else if(cmd.equals("cn")){
+			url = "ex2/cn.jsp";
+			msg="니하오";
+			req.setAttribute("msg", msg);
+		}else if(cmd.equals("jp")){
+			url = "ex2/jp.jsp";
+			msg="곰방와";
 			req.setAttribute("msg", msg);
 		}
 
