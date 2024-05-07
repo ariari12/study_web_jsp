@@ -1,4 +1,5 @@
-<%@page import="day4.MemberVO"%>
+
+<%@page import="vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div id="sidebar">

@@ -14,4 +14,5 @@
 		dao.insertOne(vo);		
 	}
 	response.sendRedirect("list.jsp");
+	
 %>

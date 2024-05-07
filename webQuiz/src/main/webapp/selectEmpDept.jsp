@@ -1,7 +1,8 @@
+<%@page import="vo.EmpDeptVO"%>
+<%@page import="dao.EmpDAO"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="day4.EmpDeptVO"%>
-<%@page import="day4.EmpDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
